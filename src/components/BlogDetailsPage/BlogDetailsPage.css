@@ -1,0 +1,15 @@
+.inside{
+    box-sizing: border-box;
+  background-color:#F6EDD8;
+  margin-top:220px;
+    background-position: center;
+    content: cover;
+    height:260px;
+   display: flex;
+   align-items: center;
+   justify-content:center;
+}
+.inside h2{
+    font-size:26px;
+color:#af9d61;
+}

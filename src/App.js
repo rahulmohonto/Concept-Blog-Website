@@ -1,24 +1,52 @@
-import logo from './logo.svg';
+import React, { createContext, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+
+} from "react-router-dom";
 import './App.css';
+import BlogDetailsPage from './components/BlogDetailsPage/BlogDetailsPage';
+
+import Home from "./components/Home/Home/Home";
+import Navbar from "./components/Home/Navbar/Navbar";
+import Login from "./components/Login/Login";
+
+
+export const UserContext = createContext();
 
 function App() {
+
+  const [loggedInUser, setLoggedInUser] = useState({});
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <Router>
+
+          <div className="App" style={{ backgroundColor: "#78bbbb" }}>
+            <Navbar />
+            <Switch>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/details/:_id">
+                <BlogDetailsPage />
+              </Route>
+
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+        <footer style={{ backgroundColor: "#4C5057" }} className="text-center text-primary"> <small>Concept Blog &copy; Copyright {(new Date()).getFullYear()}. All Rights Reserved</small> </footer>
+      </UserContext.Provider>
+    </>
   );
 }
 

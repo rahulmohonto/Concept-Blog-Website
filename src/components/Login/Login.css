@@ -1,0 +1,67 @@
+.login-container{
+    margin-top:200px;
+box-sizing: border-box;
+content:cover;
+}
+.login-form{
+   /* background-color: blue; */
+   /* background:url(../../images/user-group-296.png); */
+  border:3px dashed rgba(255,255,255,0.25);
+   width:45%;
+   /* align-items: center;
+   justify-content: center; */
+   margin-left:auto;
+   margin-right:auto;
+   height:600px;
+   box-sizing: border-box;
+}
+.main-form{
+    /* position:center;
+   position: relative; */
+    /* margin-left:auto;
+    margin-right:auto; */
+    padding-top: 60px;
+    width:50%;
+    margin: auto;
+   
+    /* background-color:orange; */
+}
+.user-icon{
+    width:80px;
+    height:80px;
+   
+}
+.one-form{
+   border:none;
+    border-bottom:1px solid grey;
+   
+}
+.icon-title-holder{
+    border:1px solid green;
+    border-radius: 20px;
+   
+    width: 40%;
+    margin: auto;
+}
+.login-text{
+    color:#F6EDD8;
+    font-size:50px;
+    font-family:'BazarMedium' ;
+    text-shadow: 1px 2px #484a4d, 3px 4px #d4cebf;
+}
+.sign-text{
+    color:#F6EDD8;
+    font-size:40px;
+    font-family:'BazarMedium' ;
+    text-shadow: 1px 2px #d4cebf, 3px 4px #D35244;
+}
+
+.icon-title-holder Button{
+    border-radius: 20px;
+    background-color:none;
+}
+@media (max-width:568px),(max-width:768px){
+    .main-form{
+        width:98%;
+    }
+}

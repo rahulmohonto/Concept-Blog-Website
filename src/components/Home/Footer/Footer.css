@@ -1,0 +1,15 @@
+.footer-section{
+    background-color: #4C5057;
+}
+.footer-section li{
+    color: aliceblue;
+}
+.social-media .icon{
+    height: 40px;
+    width: 40px;
+    color: #1C423D;
+    background-color: #fff;
+    border-radius: 10%;
+    border: 2px solid #6ACECE;
+    padding: 10px;
+}

@@ -1,0 +1,24 @@
+.form-holder{
+    height:350px;
+    margin:auto;
+    margin-top: 60px;
+    color:#F6EDD8;
+}
+.contact-section{
+    background-color: #4C5057;
+}
+.head-hloder{
+    height:120px;
+    padding:16px 0px;
+    text-align:center;
+    margin:auto;
+    color:#F6EDD8;
+    font-size:90px;
+    font-family:'BazarMedium' ;
+    text-shadow: 1px 2px #484a4d, 3px 4px #d4cebf;
+}
+@media (max-width:576px){
+    .form-holder{
+        margin-top:150px;
+    }
+}
