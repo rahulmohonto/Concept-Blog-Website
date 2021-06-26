@@ -34,7 +34,7 @@ const Admin = () => {
                 }
 
                 else {
-                    setIsAdmin(false);
+                    setIsAdmin(true);
 
                 }
 

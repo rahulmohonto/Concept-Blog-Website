@@ -154,7 +154,7 @@ const Login = () => {
                             <input className="form-control one-form" type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required />
                             <br />
                             <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
-                         {user.isSignedin ? <Button onClick={signOut}>Sign Out</Button> : 'signed in'} 
+                         
                         </form> 
                     </div>
                 </div>
@@ -163,7 +163,8 @@ const Login = () => {
                 <hr className="new1"></hr>
             </div>
             <div className="row icon-title-holder mt-5 text-center">
-                 <Button onClick={signOut} className="btn btn-secondary">Sign Out</Button> 
+                { user.isSignedIn?<Button onClick={signOut} className="btn btn-secondary">Sign Out</Button> 
+                 :
                 <Button onClick={googleSignIn} className="btn btn-light">
                     <div className="col d-flex justify-content-center align-items-center ">
 
@@ -175,7 +176,7 @@ const Login = () => {
                         </div>
 
                     </div>
-                </Button>
+                </Button>}
 
             </div>
             <div className="row icon-title-holder mt-2 text-center">
