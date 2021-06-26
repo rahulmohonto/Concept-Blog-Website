@@ -1,0 +1,11 @@
+[
+    { 
+        "name":"Rahul Mohonta",
+        "email":"rahulmohonto1999@gmail.com",
+        "role": "Admin"
+    },
+    {  "name":"Programming Hero",
+        "email":"test@test.com",
+        "role": "Admin"
+    }
+]

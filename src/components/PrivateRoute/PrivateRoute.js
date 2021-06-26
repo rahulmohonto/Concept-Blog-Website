@@ -18,12 +18,12 @@ const PrivateRoute = ({ children, ...rest }) => {
     // will return false if expired and will return true if not expired
     // return decodedToken.exp > currentTime;
 
-    console.log(setLoggedInUser);
+    // console.log(setLoggedInUser);
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                (loggedInUser.email || sessionStorage.getItem('token')) ? (
+                (loggedInUser.email) ? (
                     children
                 ) : (
                     <Redirect
