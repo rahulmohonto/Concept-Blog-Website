@@ -50,9 +50,9 @@ const Footer = () => {
                 <div className="row ">
                     <div className="d-flex align-items-center justify-content-center m-auto">
                         <ul className="social-media list-inline">
-                            <li className="list-inline-item"><img src="https://img.icons8.com/wired/64/000000/facebook-new.png" /></li>
-                            <li className="list-inline-item"><img src="https://img.icons8.com/wired/48/000000/google-plus.png" /></li>
-                            <li className="list-inline-item"><img src="https://img.icons8.com/wired/64/000000/instagram-new.png" /></li>
+                            <li className="list-inline-item"><a href="www.facebook.com"><img src="https://img.icons8.com/wired/64/000000/facebook-new.png" alt="/" /></a></li>
+                            <li className="list-inline-item"><a href="www.google-plus.com"><img src="https://img.icons8.com/wired/48/000000/google-plus.png" alt="/" /></a></li>
+                            <li className="list-inline-item"><a href="www.instagram.com"><img src="https://img.icons8.com/wired/64/000000/instagram-new.png" alt="/" /></a></li>
                         </ul>
                     </div>
                 </div>

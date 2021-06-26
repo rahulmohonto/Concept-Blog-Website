@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBm8TzLhxC2m8sLkvTDJrCyU09MFbxrO6A",
-    authDomain: "bus-client-assignment.firebaseapp.com",
-    projectId: "bus-client-assignment",
-    storageBucket: "bus-client-assignment.appspot.com",
-    messagingSenderId: "943256265512",
-    appId: "1:943256265512:web:f5b993c9a63572bbf8e61d"
+    apiKey: "AIzaSyBPwK8eW0xml0977cPLDNrnvTd_3IxNZ6w",
+    authDomain: "concept-blog-site.firebaseapp.com",
+    projectId: "concept-blog-site",
+    storageBucket: "concept-blog-site.appspot.com",
+    messagingSenderId: "125630720330",
+    appId: "1:125630720330:web:ea2775b0aa90678c6079b3"
 };
 export default firebaseConfig;

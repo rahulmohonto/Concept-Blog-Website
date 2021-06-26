@@ -23,7 +23,7 @@ const Header = () => {
                     <div className="col-12">
                         <div className="info-container">
                             <Fade top cascade> <h1 className="text-center firstText">Best Site To Publish Your
-                            <Typical loop={Infinity} steps={['Thoughts', 3000, 'Concepts', 3000, 'Blogs', 3000, 'Ideas', 3000, 'Theories', 3000,]} />
+                            <Typical className="text-center" loop={Infinity} steps={['Thoughts', 3000, 'Concepts', 3000, 'Blogs', 3000, 'Ideas', 3000, 'Theories', 3000,]} />
                             </h1></Fade>
                             <Zoom delay={600} effect="fadeInUp">  <h4 className="text-center secondText">CONCEPT BLOG SITE</h4></Zoom>
                             <div className="search-container align-content-center mt-5">
@@ -44,9 +44,10 @@ const Header = () => {
                 </div>
 
             </div>
-            <div class="dashed-line-box">
-                <hr class="new1"></hr>
+            <div className="dashed-line-box">
+                <hr className="new1"></hr>
             </div>
+            <h3 style={{ color: '#E6E1D0', fontSize: '46px', fontFamily: 'BazarMedium', fontWeight: '600' }} className="text-center m-3 p-3">See Posted Content</h3>
         </section>
     );
 };

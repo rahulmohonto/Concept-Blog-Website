@@ -44,3 +44,9 @@
         border-top: 2px ;
         border-color: #E68966;
       }
+
+      .logo-holder img:hover{
+        transform: translateY(-4px);
+        /* animation: transform 5s ease-in-out 1s infinite alternate forwards; */
+        transition: transform .45s ease-out ;
+    }

@@ -27,13 +27,13 @@ const Contact = () => {
             <div className="col-md-6 col-sm-8 col-lg-6 col-sx-12 fadeInLeft shadow rounded p-2 form-holder" data-wow-offset="50" data-wow-delay="0.9s">
                 <form onSubmit={sendMeEmail} action="#" method="post">
                     <label>NAME</label>
-                    <input name="fullname" type="text" class="form-control" id="fullname" />
+                    <input name="fullname" type="text" className="form-control" id="fullname" />
 
                     <label>EMAIL</label>
-                    <input name="email" type="email" class="form-control" id="email" />
+                    <input name="email" type="email" className="form-control" id="email" />
 
                     <label>MESSAGE</label>
-                    <textarea name="message" rows="4" class="form-control" id="message"></textarea>
+                    <textarea name="message" rows="4" className="form-control" id="message"></textarea>
                     <br />
                     <input type="submit" value="send" />
                 </form>
