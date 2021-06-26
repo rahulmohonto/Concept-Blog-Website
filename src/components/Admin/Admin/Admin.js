@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeleteBlogs from '../DeleteBlogs/DeleteBlogs';
-import { UserContext } from '../../../App';
+// import { UserContext } from '../../../App';
 import FakeData2 from '../../FakeData2/FakeData2.json'
 import './Admin.css';
 // import { useHistory, useLocation } from 'react-router-dom';
@@ -19,7 +19,7 @@ const Admin = ({ loggedInUser }) => {
     const [getAdmin, setGetAdmin] = useState([])
     // console.log(setLoggedInUser);
     console.log(loggedInUser);
-    const [isAdmin, setIsAdmin] = useState();
+    // const [isAdmin, setIsAdmin] = useState();
     // const history = useHistory();
     // const location = useLocation();
     // const { from } = location.state || { from: { pathname: "/" } };
@@ -59,13 +59,13 @@ const Admin = ({ loggedInUser }) => {
     // console.log(result)
 
 
-    const handleAdmin = () => {
-        fetch("https://frozen-ridge-03695.herokuapp.com/addAdmins", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(FakeData2)
-        })
-    }
+    // const handleAdmin = () => {
+    //     fetch("https://frozen-ridge-03695.herokuapp.com/addAdmins", {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(FakeData2)
+    //     })
+    // }
 
     return (
 
@@ -73,14 +73,14 @@ const Admin = ({ loggedInUser }) => {
 
             <div className="navbar-holder">
                 <nav className="navbar navbar-light bg-light">
-                    <h2 className="text-center m-auto">Welcome Dear Admin {loggedInUser.name}</h2><br /><br />
+                    <h2 className="text-center m-auto">Welcome Dear {loggedInUser.name}</h2><br /><br />
                     <div className="container-fluid d-flex align-items-center justify-content-center">
 
                         {result.length ? <div>
                             <button className="btn btn-secondary"> <a className="navbar-brand" href="/addBlog">Add Blogs</a></button> &nbsp;&nbsp;
                             <button className="btn btn-secondary"> <a className="navbar-brand" href="/deleteBlog">Delete Blogs</a></button>
                         </div>
-                            : "You Are Not Admin"}
+                            : "You Are Not Admin. Restricted For Admin Only"}
                     </div>
                 </nav>
             </div>
