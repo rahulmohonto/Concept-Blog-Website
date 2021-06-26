@@ -1,128 +1,120 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 
 import './Login.css';
 import userImage from '../../images/user-group-296.png';
 import Button from 'react-bootstrap/Button';
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import firebaseConfig from './firebase.config';
-import { useForm } from "react-hook-form";
+// import firebase from "firebase/app";
+// import "firebase/auth";
+// import "firebase/firestore";
+// import firebaseConfig from './firebase.config';
+// import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from "react-router";
 // import { useHistory, useLocation } from 'react-router-dom';
-// import { initializeLoginFramework, handleGoogleSignIn, handleSignOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './loginManager';
+import { initializeLoginFramework, handleGoogleSignIn, handleSignOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './loginManager';
+
+
 
 
 
 const Login = () => {
 
-    // const [user, setUser] = useState({
-    //     isSignedIn: false,
-    //     name: '',
-    //     email: '',
-    //     password: '',
-    //     photo: ''
-    // });
+ const [newUser, setNewUser] = useState(false);
+    const [user, setUser] = useState({
+        isSignedIn: false,
+        name: '',
+        email: '',
+        password: '',
+        photo: ''
+    });
 
-    // initializeLoginFramework();
+    initializeLoginFramework();
 
-    // const [newUser, setNewUser] = useState(false);
+   
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
     console.log(loggedInUser)
-    // const googleSignIn = () => {
-    //     handleGoogleSignIn()
-    //         .then(res => {
-    //             handleResponse(res, true);
-    //         })
-    // }
-
-
-    // const signOut = () => {
-    //     handleSignOut()
-    //         .then(res => {
-    //             handleResponse(res, false);
-    //         })
-    // }
-
-    // const handleResponse = (res, redirect) => {
-    //     setUser(res);
-    //     setLoggedInUser(res);
-    //     if (redirect) {
-    //         history.replace(from);
-    //     }
-    // }
-
-
-    // const handleBlur = (e) => {
-    //     let isFieldValid = true;
-    //     if (e.target.name === 'email') {
-    //         isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
-    //     }
-    //     if (e.target.name === 'password') {
-    //         const isPasswordValid = e.target.value.length > 6;
-    //         const passwordHasNumber = /\d{1}/.test(e.target.value);
-    //         isFieldValid = isPasswordValid && passwordHasNumber;
-    //     }
-    //     if (isFieldValid) {
-    //         const newUserInfo = { ...user };
-    //         newUserInfo[e.target.name] = e.target.value;
-    //         setUser(newUserInfo);
-    //     }
-    // }
-
-
-    if (firebase.apps.length === 0) {
-        firebase.initializeApp(firebaseConfig);
+    const googleSignIn = () => {
+        handleGoogleSignIn()
+            .then(res => {
+                handleResponse(res, true);
+            })
     }
 
 
-    const { register, formState: { errors } } = useForm();
+    const signOut = () => {
+        handleSignOut()
+            .then(res => {
+                handleResponse(res, false);
+            })
+    }
+
+    const handleResponse = (res, redirect) => {
+        setUser(res);
+        setLoggedInUser(res);
+        if (redirect) {
+            history.replace(from);
+        }
+    }
+
+
+    const handleBlur = (e) => {
+        let isFieldValid = true;
+        if (e.target.name === 'email') {
+            isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+        }
+        if (e.target.name === 'password') {
+            const isPasswordValid = e.target.value.length > 6;
+            const passwordHasNumber = /\d{1}/.test(e.target.value);
+            isFieldValid = isPasswordValid && passwordHasNumber;
+        }
+        if (isFieldValid) {
+            const newUserInfo = { ...user };
+            newUserInfo[e.target.name] = e.target.value;
+            setUser(newUserInfo);
+        }
+    }
+
+
+    // if (firebase.apps.length === 0) {
+    //     firebase.initializeApp(firebaseConfig);
+    // }
+
+
+    // const { register, formState: { errors } } = useForm();
     // 
 
-    const handleGoogleSignIn = () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-            const { displayName, email } = result.user;
-
-            const signedInUser = { name: displayName, email: email }
-            setLoggedInUser(signedInUser);
-            console.log(loggedInUser)
-            storeAuthToken();
-            history.replace(from);
-
-            // ...
-        }).catch(function (error) {
-            const errorMessage = error.message;
-            console.log(errorMessage);
-        });
+     const handleSubmit = (e) => {
+    if (newUser && user.email && user.password) {
+      createUserWithEmailAndPassword(user.name, user.email, user.password)
+        .then(res => {
+          handleResponse(res, true);
+        })
     }
 
-    const storeAuthToken = () => {
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-            .then(function (idToken) {
-                sessionStorage.setItem('token', idToken);
-                // console.log(idToken)
-            }).catch(function (error) {
-                console.log(error)
-            });
+    if (!newUser && user.email && user.password) {
+      signInWithEmailAndPassword(user.email, user.password)
+        .then(res => {
+          handleResponse(res, true);
+        })
     }
+    e.preventDefault();
+  }
 
 
 
 
     return (
         <section className="login-container">
-            {/* {
+            {
                 user.isSignedIn && <div className="mt-5">
                     <p>Welcome: {user.name}</p>
                     <p>Your email: {user.email}</p>
 
                 </div>
-            } */}
+            }
 
             <div className="row">
                 <div className="login-form">
@@ -137,10 +129,10 @@ const Login = () => {
                         </div>
 
 
-                        {/* <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-                        <label htmlFor="newUser">New User Sign up</label> */}
+                        <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
+                        <label htmlFor="newUser">New User Sign up</label>
 
-                        <form className="main-form justify-content-center align-items-center" >
+                        {/* <form className="main-form justify-content-center align-items-center" >
                             <input type="text" className="form-control one-form" defaultValue="Fullname" {...register("Fullname", { required: true })} /><br />
                             {errors.exampleRequired && <span>This field is required</span>}
                             <input type="email" className="form-control one-form" defaultValue="email" {...register("email", { required: true })} /><br />
@@ -151,10 +143,10 @@ const Login = () => {
                             <br />
                             <input type="submit" value={loggedInUser ? 'Signed In' : 'Sign Up'} />
 
-                        </form>
+                        </form> */}
 
 
-                        {/* <form className="main-form justify-content-center align-items-center" onSubmit={handleSubmit}>
+                         <form className="main-form justify-content-center align-items-center" onSubmit={handleSubmit}>
                             {newUser && <input className="form-control one-form" name="name" type="text" onBlur={handleBlur} placeholder="Your name" />}
                             <br />
                             <input className="form-control one-form" type="text" name="email" onBlur={handleBlur} placeholder="Your Email address" required />
@@ -162,8 +154,8 @@ const Login = () => {
                             <input className="form-control one-form" type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required />
                             <br />
                             <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
-                            {/* {user.isSignedin ? <Button onClick={signOut}>Sign Out</Button> : 'signed in'} 
-                        </form> */}
+                         {user.isSignedin ? <Button onClick={signOut}>Sign Out</Button> : 'signed in'} 
+                        </form> 
                     </div>
                 </div>
             </div>
@@ -171,8 +163,8 @@ const Login = () => {
                 <hr className="new1"></hr>
             </div>
             <div className="row icon-title-holder mt-5 text-center">
-                {/* <Button onClick={signOut} className="btn btn-secondary">Sign Out</Button> */}
-                <Button onClick={handleGoogleSignIn} className="btn btn-light">
+                 <Button onClick={signOut} className="btn btn-secondary">Sign Out</Button> 
+                <Button onClick={googleSignIn} className="btn btn-light">
                     <div className="col d-flex justify-content-center align-items-center ">
 
                         <div className="pr-4">

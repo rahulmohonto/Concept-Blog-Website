@@ -53,6 +53,7 @@ export const handleGoogleSignIn = () => {
 const setUserToken = () => {
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
         sessionStorage.setItem('token', idToken)
+        console.log(idToken)
     }).catch(function (error) {
         // Handle error
     });
