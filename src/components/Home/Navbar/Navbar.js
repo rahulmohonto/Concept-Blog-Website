@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Container } from 'react-bootstrap';
@@ -9,7 +9,7 @@ import logo1 from '../../../images/logo1.png';
 import { UserContext } from '../../../App';
 const NavbarTop = () => {
 
-    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <section className="container navbar-section shadow-lg">
             <div className="row shadow-lg">

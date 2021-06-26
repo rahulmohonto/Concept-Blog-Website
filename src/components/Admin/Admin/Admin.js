@@ -17,7 +17,7 @@ const Admin = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     // const history = useHistory();
     const location = useLocation();
-    // const { from } = location.state || { from: { pathname: "/" } };
+    const { from } = location.state || { from: { pathname: "/" } };
     useEffect(() => {
 
         fetch(`https://frozen-ridge-03695.herokuapp.com/isAdmin`)
@@ -41,7 +41,7 @@ const Admin = () => {
             }
 
             )
-    }, [isAdmin]);
+    }, [loggedInUser.email,isAdmin]);
 
 
     return (
