@@ -27,10 +27,10 @@ const Admin = () => {
                     admin.email === loggedInUser?.email
 
                 );
-                console.log(isAdmin)
+              
                 if (result) {
                     setIsAdmin(true);
-
+  console.log(isAdmin)
                 }
 
                 else {
@@ -41,7 +41,7 @@ const Admin = () => {
             }
 
             )
-    }, [loggedInUser.email]);
+    }, [loggedInUser.email,isAdmin]);
 
 
     return (
