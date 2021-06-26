@@ -41,7 +41,7 @@ const Admin = () => {
             }
 
             )
-    }, [loggedInUser.email,isAdmin]);
+    }, [loggedInUser.email]);
 
 
     return (
