@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import DeleteBlogs from '../DeleteBlogs/DeleteBlogs';
 import { UserContext } from '../../../App';
 import './Admin.css';
-import { useLocation } from "react-router";
+// import { useLocation } from "react-router";
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,8 +16,8 @@ const Admin = () => {
     console.log(setLoggedInUser);
     const [isAdmin, setIsAdmin] = useState(false);
     // const history = useHistory();
-    const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    // const location = useLocation();
+    // const { from } = location.state || { from: { pathname: "/" } };
     useEffect(() => {
 
         fetch(`https://frozen-ridge-03695.herokuapp.com/isAdmin`)
