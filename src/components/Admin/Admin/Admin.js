@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DeleteBlogs from '../DeleteBlogs/DeleteBlogs';
 // import { UserContext } from '../../../App';
-import FakeData2 from '../../FakeData2/FakeData2.json'
+// import FakeData2 from '../../FakeData2/FakeData2.json'
 import './Admin.css';
 // import { useHistory, useLocation } from 'react-router-dom';
 // import { useLocation } from "react-router";
